@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataStructures.Collections.Stack
+namespace DataStructures.Collections
 {
     /// <summary>
     /// Stack data structure implementation.
@@ -15,11 +15,16 @@ namespace DataStructures.Collections.Stack
         /// <summary>
         /// Storage for the items in the stack
         /// </summary>
-        private readonly T[] _collection;
+        private T[] _collection;
         /// <summary>
         /// Number of the items in the collection
         /// </summary>
-        private readonly int _size;
+        private int _size;
+
+        /// <summary>
+        /// Gets the number of the elements in the stack
+        /// </summary>
+        public virtual int Count => _size;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Stack{T}"/> class.
@@ -52,6 +57,20 @@ namespace DataStructures.Collections.Stack
             _size = 0;
         }
 
+        /// <summary>
+        /// Add items to the top of the stack.
+        /// </summary>
+        /// <param name="item"><see cref="T"/> to add in the collection</param>
+        public void Push(T item)
+        {
+            _collection[_size++] = item;
+        }
+
+        /// <summary>
+        /// Removes and returns the object at the top of the <see cref="Stack{T}"/>.
+        /// </summary>
+        /// <returns><see cref="T"/> object</returns>
+        /// <exception cref="InvalidOperationException">Throws if the stack is empty.</exception>
         public T Pop()
         {
             if (_size == 0)
@@ -59,7 +78,7 @@ namespace DataStructures.Collections.Stack
                 throw new InvalidOperationException(StackExceptionsStrings.EmptyStack);
             }
 
-            return _collection[_size];
+            return _collection[--_size];
         }
     }
 }

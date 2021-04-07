@@ -1,4 +1,4 @@
-﻿namespace DataStructures.Collections.Stack
+﻿namespace DataStructures.Collections
 {
     internal static class StackExceptionsStrings
     {
