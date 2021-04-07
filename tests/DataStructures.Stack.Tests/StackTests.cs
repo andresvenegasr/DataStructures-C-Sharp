@@ -7,9 +7,17 @@ namespace DataStructures.Stack.Tests
     public class StackTests
     {
         [Fact]
-        public void Should_Throws_Exception_If_Is_Empty_When_Try_To_Use_Pop_Method()
+        public void Should_throws_ArgumentOutOfRange_if_initialSize_is_less_than_zero()
         {
-            var stack = new Stack<int>();
+            // assert
+            var argumentOutOfRangeException = Assert.Throws<ArgumentOutOfRangeException>(() => new Stack<object>(-10));
+            Assert.Equal("Non-Negative number required (Parameter 'initialSize')", argumentOutOfRangeException.Message);
+        }
+        
+        [Fact]
+        public void Should_throws_InvalidOperationException_if_stack_is_empty()
+        {
+            var stack = new Stack<int>(6);
 
             Assert.Throws<InvalidOperationException>(() => stack.Pop());
         }

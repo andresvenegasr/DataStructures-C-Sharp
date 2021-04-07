@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace DataStructures.Main
 {
@@ -6,7 +7,6 @@ namespace DataStructures.Main
     {
         static void Main(string[] args)
         {
-            Stack stack = new Stack();
         }
     }
 }
